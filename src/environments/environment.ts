@@ -3,7 +3,18 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  URL: 'http://localhost:8080',
+  firebaseConfig : {
+    apiKey: 'AIzaSyCIdvcPAoDfkBOrQkOQbZeGZckjocLQqC0',
+    authDomain: 'alexwoo-project.firebaseapp.com',
+    databaseURL: 'https://alexwoo-project.firebaseio.com',
+    projectId: 'alexwoo-project',
+    storageBucket: 'alexwoo-project.appspot.com',
+    messagingSenderId: '735197620621',
+    appId: '1:735197620621:web:96ab33dc4a45f7096075c4',
+    measurementId: 'G-YRP48E7VX6'
+  }
 };
 
 /*
