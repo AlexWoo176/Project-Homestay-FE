@@ -31,6 +31,25 @@ import { RegisterHostComponent } from './components/feature/register-host/regist
 import { RegisterComponent } from './components/feature/register/register.component';
 import { SlideShowComponent } from './components/feature/slide-show/slide-show.component';
 import { UploadFileComponent } from './components/feature/upload-file/upload-file.component';
+// set locale VN
+import {registerLocaleData} from '@angular/common';
+import localeVN from '@angular/common/locales/vi';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {DatePickerModule} from '@syncfusion/ej2-angular-calendars';
+import {AngularFireStorageModule} from '@angular/fire/storage';
+import {AngularFireModule} from '@angular/fire';
+import {environment} from '../environments/environment';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {AuthInterceptor} from './services/auth.interceptor';
+import {ErrorInterceptor} from './services/error.interceptor';
+
+// set locale VN
+registerLocaleData(localeVN);
 
 @NgModule({
   declarations: [
@@ -66,9 +85,23 @@ import { UploadFileComponent } from './components/feature/upload-file/upload-fil
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    FormsModule,
+    DatePickerModule,
+    AngularFireStorageModule,
+    AngularFireModule.initializeApp(environment.firebaseConfig),
+    ReactiveFormsModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true},
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
