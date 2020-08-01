@@ -1,1 +1,30 @@
-<p>header works!</p>
+<div class="">
+  <nav class="navbar navbar-expand-sm header m-0">
+    <div class="col-md-6">
+      <a class="navbar-brand" [routerLink]="['']">
+        <img width="70" class="img-fluid" alt="SKYFARM"
+             src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSfrF63mXc18d_eMYQA1sMKV7UvwovLPkkzEqCvFGZo7fPsRcJi9dvoFZWkUMi_cL-L_gKkOGyzZY__dIKMxGWGAtSWURjprq-2BxUO&usqp=CAU&ec=45687382">
+      </a>
+    </div>
+    <div class="col-md-6">
+      <ul class="navbar-nav justify-content-around">
+        <li class="nav-item">
+          <a class="nav-link text-dark">HotLine: 1900 8080</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link btn btn-outline-warning text-warning p-0 mt-2" [routerLink]="['/registerHost']"
+             *ngIf="!username">Trở thành chủ nhà</a>
+        </li>
+        <li class="nav-item" *ngIf="!username">
+          <a class="nav-link text-dark " [routerLink]="['/registerUser']">Đăng ký</a>
+        </li>
+        <li class="nav-item">
+          <div *ngIf="username == null">
+            <a class="nav-link text-dark " routerLink="/login">Đăng nhập</a>
+          </div>
+          <app-user-menu></app-user-menu>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</div>
