@@ -72,7 +72,6 @@ export class SearchComponent implements OnInit {
         if (form.checkin || form.checkout) {
           const checkin = new Date(form.checkin);
           const checkout = new Date(form.checkout);
-          console.log(checkin.getTime());
           this.filteredHouses = this.filteredHouses.filter(house => !this.checkOrderedHouse(house.orderHouses, checkin, checkout));
         }
       } else {

@@ -17,7 +17,7 @@
       <div class="checkin position-relative mr-md-2" style="width: 190px">
         <input class="form-control mr-2 rounded-sm" [matDatepicker]="checkin"
                onkeypress="return false;" (keydown.backspace)="false"
-               placeholder="Nhập ngày checkin" formControlName="checkin">
+               placeholder="Date CheckIn" formControlName="checkin">
         <mat-datepicker-toggle matSuffix [for]="checkin"
                                style="position: absolute;top:0px;left: 155px"></mat-datepicker-toggle>
         <mat-datepicker #checkin></mat-datepicker>
@@ -25,7 +25,7 @@
       <div class="checkout position-relative mr-md-2" style="width: 190px">
         <input class="form-control mr-2 rounded-sm" [matDatepicker]="checkout"
                onkeypress="return false;" (keydown.backspace)="false"
-               placeholder="Nhập ngày checkout" formControlName="checkout">
+               placeholder="Date CheckOut" formControlName="checkout">
         <mat-datepicker-toggle matSuffix [for]="checkout"
                                style="position: absolute;top:0px;left: 155px"></mat-datepicker-toggle>
         <mat-datepicker #checkout></mat-datepicker>

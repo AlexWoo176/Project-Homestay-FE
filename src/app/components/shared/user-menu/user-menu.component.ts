@@ -3,8 +3,19 @@ import {IUser} from '../../../model/iuser';
 import {Router} from '@angular/router';
 import {UserProfileService} from '../../../services/user-profile.service';
 
-// tslint:disable-next-line:typedef
-declare function convertStringToArray(str);
+function convertStringToArray(str: string): string[] {
+  let arr: string[] = [];
+  const temp1 = str.replace('[', '');
+  const temp2 = temp1.replace(']', '');
+  const temp3 = temp2.replace('"', '');
+  const temp4 = temp3.replace('"', '');
+  const temp5 = temp4.replace('"', '');
+  const temp6 = temp5.replace('"', '');
+  const temp7 = temp6.replace(' ', '');
+  arr = temp7.split(',');
+  console.log(arr);
+  return arr;
+}
 
 @Component({
   selector: 'app-user-menu',
