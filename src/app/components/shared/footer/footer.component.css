@@ -1,0 +1,50 @@
+* {
+  margin: 0;
+  padding-left: 1%;
+}
+.footer {
+  width: 100%;
+  height: auto;
+  color: black;
+  margin-top: 2%;
+}
+hr {
+  margin-top: 3%;
+}
+.footer h3 {
+  margin-left: 8%;
+  color: dimgray;
+}
+.list-city li {
+  list-style: none;
+}
+.list-city li a {
+  color: dimgray;
+}
+.list-city li a:hover {
+  color: blue;
+}
+.footer-div-1 li {
+  list-style: none;
+}
+.footer-div-1 li:hover a {
+  color: #DF4B3B;
+}
+.footer-div-1 a {
+  color: dimgray;
+}
+.footer-div-1 {
+  margin-top: 3%;
+}
+.footer-div-1 h5 {
+  margin-bottom: 9%;
+}
+.footer-bottom {
+  margin-top: 3%;
+  padding-left: 18%;
+}
+.footer-bottom i {
+  margin-top: 5%;
+  width: 30px;
+  text-align: center;
+}
