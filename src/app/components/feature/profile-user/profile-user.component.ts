@@ -7,8 +7,6 @@ import {AuthenticationService} from '../../../services/authentication.service';
 
 const ERROR_PASSWORD = 'Bạn nhập mật khẩu hiện tại không chính xác';
 
-const UPDATE_SUCCESS = 'Ban da update thanh cong';
-
 @Component({
   selector: 'app-profile-user',
   templateUrl: './profile-user.component.html',
@@ -47,7 +45,7 @@ export class ProfileUserComponent implements OnInit {
       if (next.message === 'Confirm Success') {
         this.status = '';
         this.userProfileService.updateUser(this.user).subscribe(data => {
-          alert(UPDATE_SUCCESS);
+          alert('Ban da update thanh cong');
           this.username = data.username;
           localStorage.setItem('currentUser', data.username);
           this.loginForm = this.formBuilder.group({
