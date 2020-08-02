@@ -1,1 +1,24 @@
-<p>slide-show works!</p>
+<div class="container ">
+
+  <div class="image-show">
+    <div class="mySlides" *ngFor="let image of house.imageUrls, index as i">
+      <div class="numbertext">{{i + 1}} / {{house.imageUrls.length}}</div>
+      <img src="{{image}}" style="width:100%; height: 400px">
+    </div>
+
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+
+  <div class="caption-container">
+    <p id="caption">1 / {{house.imageUrls.length}}</p>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="column" *ngFor="let image of house.imageUrls, index as i">
+      <img class="demo cursor" src="{{image}}" style="width:100%" onclick="currentSlide(i+1)"
+           alt="{{i+1}} / {{house.imageUrls.length}}">
+    </div>
+  </div>
+
+</div>

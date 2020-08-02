@@ -1,4 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {IHouse} from '../../../model/ihouse';
+
+// tslint:disable-next-line:typedef
+declare function plusSlides(n);
+
+// tslint:disable-next-line:typedef
+declare function currentSlide(n);
+
+// tslint:disable-next-line:typedef
+declare function showSlides(n);
 
 @Component({
   selector: 'app-slide-show',
@@ -7,9 +17,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SlideShowComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  house: IHouse;
 
-  ngOnInit(): void {
+  constructor() {
   }
 
+  ngOnInit(): void {
+    const n = 1;
+    showSlides(n);
+  }
 }
