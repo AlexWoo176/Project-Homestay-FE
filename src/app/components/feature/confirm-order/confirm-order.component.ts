@@ -41,7 +41,7 @@ export class ConfirmOrderComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.id = +this.route.snapshot.paramMap.get('id');
     this.houseService.getHouseById(this.id)
       .subscribe(
@@ -50,10 +50,8 @@ export class ConfirmOrderComponent implements OnInit {
           this.orderForm.patchValue(this.houseService.order);
           this.numberNights = this.getNumberDay();
           this.cost = this.house.price * this.numberNights;
-          console.log(next.data);
         },
         error => {
-          console.log(error);
           this.house = null;
         });
   }
@@ -85,7 +83,6 @@ export class ConfirmOrderComponent implements OnInit {
           } else {
             alert(next.message);
           }
-
         }
       );
     } else {
@@ -96,5 +93,5 @@ export class ConfirmOrderComponent implements OnInit {
   myFilter = (d: Date): boolean => {
     const day = d.getDay();
     return true;
-  };
+  }
 }
