@@ -9,7 +9,7 @@ import {AuthenticationService} from '../../../services/authentication.service';
 function comparePassword(c: AbstractControl) {
   const v = c.value;
   return (v.password === v.confirmPassword) ? null : {
-    passwordNotMatch: true
+    passwordnotmatch: true
   };
 }
 
@@ -73,7 +73,7 @@ export class ConfirmPasswordComponent implements OnInit {
         });
         return;
       }
-      this.router.navigate(['/home-for-host']);
+      this.router.navigateByUrl('/home-for-host');
     });
     alert('Bạn nhập mật khẩu hiện tại không chính xác');
   }
