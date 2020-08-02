@@ -3,7 +3,9 @@ import {IUser} from '../../../model/iuser';
 import {Router} from '@angular/router';
 import {UserProfileService} from '../../../services/user-profile.service';
 
+// tslint:disable-next-line:typedef
 declare function convertStringToArray(str);
+
 
 @Component({
   selector: 'app-user-menu',
@@ -15,23 +17,22 @@ export class UserMenuComponent implements OnInit {
   user: IUser;
   roles: string[] = [];
 
-  constructor(
-    private router: Router,
-    private userProfile: UserProfileService
-  ) {
+  constructor(private router: Router,
+              private userProfileService: UserProfileService) {
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.username = localStorage.getItem('currentUser');
     if (this.username) {
-      this.userProfile.getUserCurrent().subscribe(
+      this.userProfileService.getUserCurrent().subscribe(
         next => this.user = next,
+        error => console.log(error)
       );
     }
     this.roles = convertStringToArray(localStorage.getItem('roles'));
   }
 
-  logout(): void {
+  logout() {
     localStorage.clear();
     this.router.navigateByUrl('/login');
   }

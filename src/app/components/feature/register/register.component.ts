@@ -77,5 +77,4 @@ export class RegisterComponent implements OnInit {
   getImageUrl(imageUrls: string[]) {
     this.user.avatar = imageUrls[0];
   }
-
 }
