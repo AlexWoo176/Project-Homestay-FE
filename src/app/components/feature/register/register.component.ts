@@ -25,7 +25,9 @@ export class RegisterComponent implements OnInit {
   message: string;
 
 
-  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
+  constructor(private fb: FormBuilder,
+              private userService: UserService,
+              private router: Router) {
   }
 
   ngOnInit(): void {
@@ -35,14 +37,6 @@ export class RegisterComponent implements OnInit {
         password: ['', [Validators.required, Validators.minLength(6), Validators.maxLength(100)]],
         confirmPassword: ['']
       }, {validator: comparePassword}),
-      address: [''],
-      age: [''],
-      type: [''],
-      phone: [''],
-      role: [''],
-      name: [''],
-      idNumber: [''],
-      avatar: [''],
       username: ['', [Validators.required, Validators.minLength(3),
         Validators.maxLength(50), Validators.pattern(/^[_A-z0-9]*[_A-z0-9]*$/)]],
     });
@@ -51,7 +45,7 @@ export class RegisterComponent implements OnInit {
       id: Math.round(Math.random() * 1000),
       username: '',
       password: '',
-      name: 'user',
+      name: 'GUEST',
       email: '',
       avatar: this.avatarDefault
     };

@@ -5,6 +5,10 @@ import {UserProfileService} from '../../../services/user-profile.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {AuthenticationService} from '../../../services/authentication.service';
 
+const ERROR_PASSWORD = 'Bạn nhập mật khẩu hiện tại không chính xác';
+
+const UPDATE_SUCCESS = 'Ban da update thanh cong';
+
 @Component({
   selector: 'app-profile-user',
   templateUrl: './profile-user.component.html',
@@ -40,10 +44,10 @@ export class ProfileUserComponent implements OnInit {
   updateProfile(): void {
     this.user.password = this.oldPassword;
     this.userProfileService.confirmPasswordUser(this.oldPassword + '').subscribe(next => {
-      if (next.message === 'confirm Succssess') {
+      if (next.message === 'Confirm Success') {
         this.status = '';
         this.userProfileService.updateUser(this.user).subscribe(data => {
-          alert('Ban da update thanh cong');
+          alert(UPDATE_SUCCESS);
           this.username = data.username;
           localStorage.setItem('currentUser', data.username);
           this.loginForm = this.formBuilder.group({
@@ -58,6 +62,6 @@ export class ProfileUserComponent implements OnInit {
         return;
       }
     });
-    alert('Bạn nhập mật khẩu hiện tại không chính xác');
+    alert(ERROR_PASSWORD);
   }
 }

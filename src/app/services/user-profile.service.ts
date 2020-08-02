@@ -18,13 +18,16 @@ export class UserProfileService {
 
   updateUser(user: Partial<IUser>): Observable<any> {
     return this.http.put<any>(`${this.API_URL + '/updateCurrent'}`, user);
+    // return this.http.put<any>(this.API_URL + '/updateCurrent', user);
   }
 
   getUserCurrent(): Observable<any> {
     return this.http.get<any>(`${this.API_URL + '/Current'}`);
+    // return this.http.get<any>(this.API_URL + '/Current');
   }
 
   confirmPasswordUser(password: string): Observable<any> {
     return this.http.post<any>(`${this.API_URL + '/confirmPassword'}`, password);
+    // return this.http.post<any>(this.API_URL + '/confirmPassword', password);
   }
 }

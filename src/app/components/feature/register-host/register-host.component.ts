@@ -42,7 +42,7 @@ export class RegisterHostComponent implements OnInit {
     this.user = {
       username: '',
       password: '',
-      name: 'host',
+      name: 'HOST',
       email: '',
       avatar: this.avatarDefault
     };

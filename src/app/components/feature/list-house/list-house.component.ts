@@ -16,8 +16,7 @@ export class ListHouseComponent implements OnInit {
   constructor(
     private houseService: HouseService,
     private auth: AuthenticationService
-  ) {
-  }
+  ) {}
 
   ngOnInit(): void {
     this.houseService.getHouses()

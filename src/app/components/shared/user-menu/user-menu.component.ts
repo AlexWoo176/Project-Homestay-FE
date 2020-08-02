@@ -35,4 +35,5 @@ export class UserMenuComponent implements OnInit {
     localStorage.clear();
     this.router.navigateByUrl('/login');
   }
+
 }

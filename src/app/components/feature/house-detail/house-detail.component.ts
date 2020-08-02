@@ -164,13 +164,10 @@ export class HouseDetailComponent implements OnInit {
   createComment() {
     this.comment.house = this.house;
     this.commentService.createComment(this.comment).subscribe(next => {
-      console.log(this.comment);
       this.commentService.getCommentsByHouseId(this.id).subscribe(next1 => {
           this.comments = next1.data;
-          console.log(next1.data);
         },
         error => {
-          console.log(error);
           this.comments = null;
         });
       this.comment = {
@@ -190,8 +187,6 @@ export class HouseDetailComponent implements OnInit {
           area: 0,
         }
       };
-    }, error => {
-      console.log(error);
     });
   }
 
@@ -200,16 +195,10 @@ export class HouseDetailComponent implements OnInit {
     this.rate.house = this.house;
     this.rate.ratePoint = i;
     this.rateService.createRate(this.rate).subscribe(next => {
-        console.log(this.rate);
         alert(next.message);
         this.rateService.getRatesByHouseId(this.id).subscribe(data => {
             this.rates = data.data;
-            console.log(this.rates);
             this.rateChecked = this.rateService.checkRates(this.rates);
-            console.log(this.rateChecked);
-          },
-          error1 => {
-            console.log(error1);
           });
       }
     );
@@ -220,5 +209,4 @@ export class HouseDetailComponent implements OnInit {
     const now = new Date().getTime();
     return day > now;
   }
-
 }

@@ -49,7 +49,6 @@ export class CreateHouseComponent implements OnInit {
 
   createHouse(): void {
     if (this.houseForm.valid) {
-      console.log(this.house);
       const imageHouses: ImageOfHouse[] = [];
       if (!this.imageUrls.length) {
         this.imageUrls.push(this.defaultHouseImage);

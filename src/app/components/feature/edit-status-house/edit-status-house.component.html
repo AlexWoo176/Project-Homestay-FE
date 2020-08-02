@@ -1,1 +1,52 @@
-<p>edit-status-house works!</p>
+<div class="container-fluid">
+  <app-header-for-host></app-header-for-host>
+  <div
+    style="background-color: black; border-radius: 10px; text-align: center; color: white; margin-top: 20px; margin-bottom: 20px; font-size: x-large; margin-left: 5px; margin-right:5px">
+    Sửa lại thông tin về chỗ ở bạn đã đăng
+  </div>
+  <div class="container-fluid row">
+    <div class="col-8">
+      <div>
+        <h4>Thêm giai đoạn bạn muốn ngừng cung cấp dịch vụ: </h4>
+        <div>
+          <mat-form-field color="primary">
+            <input matInput [matDatepicker]="startDate" [(ngModel)]="statusHouse.startDate" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+            <mat-datepicker #startDate color="primary"></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field color="primary">
+            <input matInput [matDatepicker]="endDate" [(ngModel)]="statusHouse.endDate" placeholder="Choose a date">
+            <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+            <mat-datepicker #endDate color="primary"></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div>
+          <button type="button" class="btn btn-primary" (click)="create()">Create</button>
+        </div>
+      </div>
+
+      <div style="margin: 10px">
+        <h4>Chỗ ở sẽ tạm ngưng cung cấp dịch vụ trong khoảng thời gian như sau: </h4>
+      </div>
+      <div>
+        <table class="table table-striped" style="border: solid 1px">
+          <tr>
+            <th class="text-center">Date start:</th>
+            <th class="text-center">Date end:</th>
+            <th class="text-center">#</th>
+          </tr>
+          <tr *ngFor="let statusHouse of statusHouses">
+            <td class="text-center"><p>{{statusHouse.startDate | date:'dd/MM/yyyy'}}</p></td>
+            <td class="text-center"><p>{{statusHouse.endDate| date:'dd/MM/yyyy'}}</p></td>
+            <td class="text-center">
+              <button type="button" class="btn btn-danger" (click)="delete(statusHouse.id)">Delete</button>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</div>

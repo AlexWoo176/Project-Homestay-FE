@@ -60,7 +60,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
     data: {roles: [Role.HOST, Role.GUEST, Role.PM, Role.ADMIN]}
   },
-  {path: 'listHouseOfHost', component: ListHouseOfHostComponent},
+  {path: 'listHouseOfHost', component: ListHouseOfHostComponent, canActivate: [AuthGuard], data: {roles: [Role.HOST]}}
+  // {path: 'listHouseOfHost', component: ListHouseOfHostComponent},
 ];
 
 @NgModule({
