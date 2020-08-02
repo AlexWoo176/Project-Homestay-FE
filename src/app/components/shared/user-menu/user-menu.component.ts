@@ -21,18 +21,17 @@ export class UserMenuComponent implements OnInit {
               private userProfileService: UserProfileService) {
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.username = localStorage.getItem('currentUser');
     if (this.username) {
       this.userProfileService.getUserCurrent().subscribe(
         next => this.user = next,
-        error => console.log(error)
       );
     }
     this.roles = convertStringToArray(localStorage.getItem('roles'));
   }
 
-  logout() {
+  logout(): void {
     localStorage.clear();
     this.router.navigateByUrl('/login');
   }

@@ -1,4 +1,5 @@
 import {OrderHouse} from './order-house';
+import {CategoryOfHouse} from './category-of-house';
 
 export class IHouse {
   id: number;

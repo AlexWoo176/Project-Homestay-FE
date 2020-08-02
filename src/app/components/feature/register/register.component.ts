@@ -8,7 +8,7 @@ import {Router} from '@angular/router';
 function comparePassword(c: AbstractControl) {
   const v = c.value;
   return (v.password === v.confirmPassword) ? null : {
-    passwordNotMatch: true
+    passwordnotmatch: true
   };
 }
 
@@ -24,11 +24,8 @@ export class RegisterComponent implements OnInit {
   success: boolean;
   message: string;
 
-  constructor(
-    private fb: FormBuilder,
-    private userService: UserService,
-    private router: Router
-  ) {
+
+  constructor(private fb: FormBuilder, private userService: UserService, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -60,20 +57,21 @@ export class RegisterComponent implements OnInit {
     };
   }
 
+
   onSubmit(): void {
     if (this.registerForm.valid) {
-      this.userService.registerGuest(this.user).subscribe(
-        next => {
-          this.success = next.success;
-          this.message = next.message;
-          alert('Đăng ký tài khoản thành công');
-          this.router.navigateByUrl('/login');
-        }
-      );
+      this.userService.registerGuest(this.user)
+        .subscribe(
+          next => {
+            this.success = next.success;
+            this.message = next.message;
+            alert('Đăng ký tài khoản thành công');
+            this.router.navigateByUrl('/login');
+          }
+        );
     }
   }
 
-  // tslint:disable-next-line:typedef
   getImageUrl(imageUrls: string[]) {
     this.user.avatar = imageUrls[0];
   }

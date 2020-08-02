@@ -8,7 +8,7 @@ import {UserService} from '../../../services/user.service';
 function comparePassword(c: AbstractControl) {
   const v = c.value;
   return (v.password === v.confirmPassword) ? null : {
-    passwordNotMatch: true
+    passwordnotmatch: true
   };
 }
 
@@ -22,11 +22,9 @@ export class RegisterHostComponent implements OnInit {
   user: Partial<IUser>;
   avatarDefault = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRTUteh9yefJkzgW2Pa1jEMEs8YKY5cfat09zZZdeyX-V-Vhpe';
 
-  constructor(
-    private fb: FormBuilder,
-    private router: Router,
-    private userService: UserService
-  ) {
+  constructor(private fb: FormBuilder,
+              private router: Router,
+              private userService: UserService) {
   }
 
   ngOnInit(): void {
@@ -56,13 +54,14 @@ export class RegisterHostComponent implements OnInit {
         .subscribe(
           data => {
             this.router.navigateByUrl('/login');
-          });
+          }
+        );
     } else {
       alert('Thông tin không hợp lệ');
     }
+
   }
 
-  // tslint:disable-next-line:typedef
   getImageUrl(imageUrls: string[]) {
     this.user.avatar = imageUrls[0];
   }
