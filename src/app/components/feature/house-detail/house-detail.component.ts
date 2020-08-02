@@ -95,7 +95,7 @@ export class HouseDetailComponent implements OnInit {
   constructor(private houseService: HouseService,
               private commentService: CommentService,
               private rateService: RateService,
-              private authenService: AuthenticationService,
+              private auth: AuthenticationService,
               private route: ActivatedRoute,
               private router: Router) {
     this.formOrder = new FormGroup({
@@ -112,31 +112,22 @@ export class HouseDetailComponent implements OnInit {
         .subscribe(
           next => {
             this.house = next.data;
-            console.log(next.data);
           },
           error => {
-            console.log(error);
             this.house = null;
           });
       this.rateService.getRatesByHouseId(this.id).subscribe(data => {
           this.rates = data.data;
-          console.log(this.rates);
           this.rateChecked = this.rateService.checkRates(this.rates);
-          console.log(this.rateChecked);
-        },
-        error1 => {
-          console.log(error1);
         });
       this.commentService.getCommentsByHouseId(this.id).subscribe(next => {
           this.comments = next.data;
-          console.log(next.data);
         },
         error => {
-          console.log(error);
           this.comments = null;
         });
 
-      if (this.authenService.isLoggedIn()) {
+      if (this.auth.isLoggedIn()) {
         const roles = convertStringToArray(localStorage.getItem('roles'));
         this.isGuest = this.checkGuest(roles);
       }
